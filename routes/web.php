@@ -29,24 +29,22 @@ Route::get('/entrar', [SiteController::class, 'entrar'])->name("entrar");
 Route::post('/logar', [SiteController::class, 'logar']);
 
 /* ROTAS DO ADMIN */
-// Route::middleware(['admin'])->group(function(){
-    Route::prefix('admin')->group(function(){
-        // ADMIN
-        Route::get('/', [AdminController::class, 'index']);
-        // MOTORISTA
-        Route::get('/motoristas', [MotoristaController::class, 'list']);
-        Route::get('/motorista/{id}', [MotoristaController::class, 'show']);
-        Route::post('/motorista', [MotoristaController::class, 'store']);
-        Route::post('/motorista/{id}', [MotoristaController::class, 'update']);
-        Route::delete('/motorista/{id}', [MotoristaController::class, 'destroy']);
-        // CARRO
-        Route::get('/carros', [CarroController::class, 'list']);
-        Route::get('/carro/{id}', [CarroController::class, 'show']);
-        Route::post('/carro', [CarroController::class, 'store']);
-        Route::post('/carro/{id}', [CarroController::class, 'update']);
-        Route::delete('/carro/{id}', [CarroController::class, 'destroy']);
-    });
-// });
+Route::prefix('admin')->group(function(){
+    // ADMIN
+    Route::get('/', [AdminController::class, 'index']);
+    // MOTORISTA
+    Route::get('/motoristas', [MotoristaController::class, 'list']);
+    Route::get('/motorista/{id}', [MotoristaController::class, 'show']);
+    Route::post('/motorista', [MotoristaController::class, 'store']);
+    Route::post('/motorista/{id}', [MotoristaController::class, 'update']);
+    Route::delete('/motorista/{id}', [MotoristaController::class, 'destroy']);
+    // CARRO
+    Route::get('/carros', [CarroController::class, 'list']);
+    Route::get('/carro/{id}', [CarroController::class, 'show']);
+    Route::post('/carro', [CarroController::class, 'store']);
+    Route::post('/carro/{id}', [CarroController::class, 'update']);
+    Route::delete('/carro/{id}', [CarroController::class, 'destroy']);
+});
 
 /* ROTAS DO DASHBOARD */
 Route::middleware(['auth'])->group(function(){

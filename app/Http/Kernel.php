@@ -49,6 +49,8 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\Authenticate::class,
             \App\Http\Middleware\Admin::class,
         ],
+
+        'cors' => \App\Http\Middleware\Cors::class,
     ];
 
     /**

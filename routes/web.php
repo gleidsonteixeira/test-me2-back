@@ -39,11 +39,15 @@ Route::prefix('admin')->group(function(){
     Route::post('/motorista/{id}', [MotoristaController::class, 'update']);
     Route::delete('/motorista/{id}', [MotoristaController::class, 'destroy']);
     // CARRO
-    Route::get('/carros', [CarroController::class, 'list']);
+    // Route::get('/carros', [CarroController::class, 'list']);
     Route::get('/carro/{id}', [CarroController::class, 'show']);
     Route::post('/carro', [CarroController::class, 'store']);
     Route::post('/carro/{id}', [CarroController::class, 'update']);
     Route::delete('/carro/{id}', [CarroController::class, 'destroy']);
+});
+
+Route::middleware(['cors'])->group(function(){
+    Route::get('/carros', [CarroController::class, 'list']);
 });
 
 /* ROTAS DO DASHBOARD */

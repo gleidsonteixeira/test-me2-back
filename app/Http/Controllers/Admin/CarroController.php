@@ -17,7 +17,7 @@ class CarroController extends Controller
     {
         $carro = ModCarro::find($id);
         if($carro) {
-            return response()->json([$carro], 200);
+            return response()->json($carro, 200);
         }else{
             return response()->json(["message" => "Registro não encontrado"], 200);
         }
@@ -27,7 +27,7 @@ class CarroController extends Controller
     {
         $carros = ModCarro::with("motorista")->get();
         if(count($carros) > 0) {
-            return response()->json([$carros], 200);
+            return response()->json($carros, 200);
         }else{
             return response()->json(["message" => "Nenhum registro encontrado"], 200);
         }
@@ -38,7 +38,7 @@ class CarroController extends Controller
         $carro = new ModCarro();
         $carro->fill($request->all());
         if($carro->save()){
-            return response()->json([$carro], 200);
+            return response()->json($carro, 200);
         }else{
             return response()->json(["message" => "Falha em criar registro"], 200);
         }
@@ -50,7 +50,7 @@ class CarroController extends Controller
         $carro->fill($request->all());
         $carro->save();
         if($carro->save()){
-            return response()->json([$carro], 200);
+            return response()->json($carro, 200);
         }else{
             return response()->json(["message" => "Falha em atualizar o registro"], 200);
         }

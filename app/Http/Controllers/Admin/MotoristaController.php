@@ -29,7 +29,7 @@ class MotoristaController extends Controller
     {
         $motoristas = ModMotorista::with("carro")->get();
         if(count($motoristas) > 0) {
-            return response()->json([$motoristas], 200);
+            return response()->json($motoristas, 200);
         }else{
             return response()->json(["message" => "Nenhum registro encontrado"], 200);
         }
@@ -40,7 +40,7 @@ class MotoristaController extends Controller
         $motorista = new ModMotorista();
         $motorista->fill($request->all());
         if($motorista->save()){
-            return response()->json([$motorista], 200);
+            return response()->json($motorista, 200);
         }else{
             return response()->json(["message" => "Falha em criar registro"], 200);
         }
@@ -52,7 +52,7 @@ class MotoristaController extends Controller
         $motorista->fill($request->all());
         $motorista->save();
         if($motorista->save()){
-            return response()->json([$motorista], 200);
+            return response()->json($motorista, 200);
         }else{
             return response()->json(["message" => "Falha em atualizar o registro"], 200);
         }

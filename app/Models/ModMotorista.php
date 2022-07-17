@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class ModMotorista extends Model
 {
 
-    const CREATED_AT = 'creation_date';
-    const UPDATED_AT = 'updated_date';
+    const CREATED_AT = 'created_at';
+    const UPDATED_AT = 'updated_at';
 
     protected $primaryKey = 'motorista_id';
     protected $table = 'mod_motorista';
@@ -22,6 +22,6 @@ class ModMotorista extends Model
 
     public function carro()
     {
-        return $this->hasOne("App\Models\ModCarro", "carro_id");
+        return $this->hasOne("App\Models\ModCarro", "carro_id", "carro_id");
     }
 }
